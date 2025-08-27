@@ -53,7 +53,7 @@ TMR2_LC4_OUT 12
 TMR2_PWM3_OUT 13
 TMR2_PWM4_OUT 14
 ]
-"209 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"210 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [e E10134 . `uc
 channel_AN2 2
 channel_AN3 3
@@ -141,29 +141,31 @@ TMR4_PWM4_OUT 14
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"113 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"114 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"304
+"314
 [v _printByteValue printByteValue `(v  1 e 1 0 ]
-"346
-[v _setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
 "355
+[v _reportfault reportfault `(v  1 e 1 0 ]
+"364
+[v _setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
+"373
 [v _convert14BitToFloat convert14BitToFloat `(f  1 e 4 0 ]
-"375
+"393
 [v _stuffIntToCharsBuf stuffIntToCharsBuf `(v  1 e 1 0 ]
-"468
+"486
 [v _spi_transfer spi_transfer `(uc  1 e 1 0 ]
-"485
+"503
 [v _spi_read_32bits spi_read_32bits `(ul  1 e 4 0 ]
-"504
+"522
 [v _spi_write spi_write `(v  1 e 1 0 ]
-"511
+"529
 [v _command command `(v  1 e 1 0 ]
-"543
+"561
 [v _initDisplay initDisplay `(v  1 e 1 0 ]
-"554
+"572
 [v _dataCMD dataCMD `(v  1 e 1 0 ]
-"586
+"604
 [v _initOLED initOLED `(v  1 e 1 0 ]
 "64 C:\Users\johns\MPLABXProjects\K_Type_PID.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -219,7 +221,7 @@ TMR4_PWM4_OUT 14
 [v _TMR4_SetInterruptHandler TMR4_SetInterruptHandler `(v  1 e 1 0 ]
 "192
 [v _TMR4_DefaultInterruptHandler TMR4_DefaultInterruptHandler `(v  1 e 1 0 ]
-[s S1032 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S1044 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -229,13 +231,13 @@ TMR4_PWM4_OUT 14
 `uc 1 GIE 1 0 :1:7 
 ]
 "374 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h
-[s S1041 . 1 `uc 1 . 1 0 :2:0 
+[s S1053 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S1046 . 1 `S1032 1 . 1 0 `S1041 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1046  1 e 1 @11 ]
+[u S1058 . 1 `S1044 1 . 1 0 `S1053 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1058  1 e 1 @11 ]
 [s S275 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -248,7 +250,7 @@ TMR4_PWM4_OUT 14
 "597
 [u S284 . 1 `S275 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES284  1 e 1 @16 ]
-[s S725 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[s S737 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR4IF 1 0 :1:1 
 `uc 1 TMR6IF 1 0 :1:2 
 `uc 1 BCL1IF 1 0 :1:3 
@@ -258,8 +260,8 @@ TMR4_PWM4_OUT 14
 `uc 1 OSFIF 1 0 :1:7 
 ]
 "659
-[u S734 . 1 `S725 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES734  1 e 1 @17 ]
+[u S746 . 1 `S737 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES746  1 e 1 @17 ]
 "1072
 [v _T2TMR T2TMR `VEuc  1 e 1 @26 ]
 "1077
@@ -352,7 +354,7 @@ TMR4_PWM4_OUT 14
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
 "1703
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S746 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[s S758 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR4IE 1 0 :1:1 
 `uc 1 TMR6IE 1 0 :1:2 
 `uc 1 BCL1IE 1 0 :1:3 
@@ -362,8 +364,8 @@ TMR4_PWM4_OUT 14
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "1844
-[u S755 . 1 `S746 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES755  1 e 1 @145 ]
+[u S767 . 1 `S758 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES767  1 e 1 @145 ]
 [s S78 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
@@ -439,7 +441,7 @@ TMR4_PWM4_OUT 14
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
 "5454
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
-[s S585 . 1 `uc 1 BF 1 0 :1:0 
+[s S591 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -449,8 +451,8 @@ TMR4_PWM4_OUT 14
 `uc 1 SMP 1 0 :1:7 
 ]
 "5476
-[u S594 . 1 `S585 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES594  1 e 1 @532 ]
+[u S600 . 1 `S591 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES600  1 e 1 @532 ]
 "5576
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
 "6090
@@ -487,11 +489,11 @@ TMR4_PWM4_OUT 14
 "7717
 [v _T4CON T4CON `VEuc  1 e 1 @1045 ]
 "7753
-[s S915 . 1 `uc 1 T4OUTPS 1 0 :4:0 
+[s S927 . 1 `uc 1 T4OUTPS 1 0 :4:0 
 `uc 1 T4CKPS 1 0 :3:4 
 `uc 1 T4ON 1 0 :1:7 
 ]
-[s S919 . 1 `uc 1 T4OUTPS0 1 0 :1:0 
+[s S931 . 1 `uc 1 T4OUTPS0 1 0 :1:0 
 `uc 1 T4OUTPS1 1 0 :1:1 
 `uc 1 T4OUTPS2 1 0 :1:2 
 `uc 1 T4OUTPS3 1 0 :1:3 
@@ -500,38 +502,38 @@ TMR4_PWM4_OUT 14
 `uc 1 T4CKPS2 1 0 :1:6 
 `uc 1 TMR4ON 1 0 :1:7 
 ]
-[u S928 . 1 `S422 1 . 1 0 `S426 1 . 1 0 `S915 1 . 1 0 `S919 1 . 1 0 ]
-[v _T4CONbits T4CONbits `VES928  1 e 1 @1045 ]
+[u S940 . 1 `S422 1 . 1 0 `S426 1 . 1 0 `S927 1 . 1 0 `S931 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES940  1 e 1 @1045 ]
 "7863
 [v _T4HLT T4HLT `VEuc  1 e 1 @1046 ]
 "7896
-[s S814 . 1 `uc 1 T4MODE 1 0 :5:0 
+[s S826 . 1 `uc 1 T4MODE 1 0 :5:0 
 `uc 1 T4CKSYNC 1 0 :1:5 
 `uc 1 T4CKPOL 1 0 :1:6 
 `uc 1 T4PSYNC 1 0 :1:7 
 ]
-[s S819 . 1 `uc 1 T4MODE0 1 0 :1:0 
+[s S831 . 1 `uc 1 T4MODE0 1 0 :1:0 
 `uc 1 T4MODE1 1 0 :1:1 
 `uc 1 T4MODE2 1 0 :1:2 
 `uc 1 T4MODE3 1 0 :1:3 
 `uc 1 T4MODE4 1 0 :1:4 
 ]
-[u S825 . 1 `S322 1 . 1 0 `S327 1 . 1 0 `S814 1 . 1 0 `S819 1 . 1 0 ]
-[v _T4HLTbits T4HLTbits `VES825  1 e 1 @1046 ]
+[u S837 . 1 `S322 1 . 1 0 `S327 1 . 1 0 `S826 1 . 1 0 `S831 1 . 1 0 ]
+[v _T4HLTbits T4HLTbits `VES837  1 e 1 @1046 ]
 "7991
 [v _T4CLKCON T4CLKCON `VEuc  1 e 1 @1047 ]
 "8071
 [v _T4RST T4RST `VEuc  1 e 1 @1048 ]
 "8096
-[s S876 . 1 `uc 1 T4RSEL 1 0 :4:0 
+[s S888 . 1 `uc 1 T4RSEL 1 0 :4:0 
 ]
-[s S878 . 1 `uc 1 T4RSEL0 1 0 :1:0 
+[s S890 . 1 `uc 1 T4RSEL0 1 0 :1:0 
 `uc 1 T4RSEL1 1 0 :1:1 
 `uc 1 T4RSEL2 1 0 :1:2 
 `uc 1 T4RSEL3 1 0 :1:3 
 ]
-[u S883 . 1 `S388 1 . 1 0 `S390 1 . 1 0 `S876 1 . 1 0 `S878 1 . 1 0 ]
-[v _T4RSTbits T4RSTbits `VES883  1 e 1 @1048 ]
+[u S895 . 1 `S388 1 . 1 0 `S390 1 . 1 0 `S888 1 . 1 0 `S890 1 . 1 0 ]
+[v _T4RSTbits T4RSTbits `VES895  1 e 1 @1048 ]
 "11849
 [v _PWM3DCL PWM3DCL `VEuc  1 e 1 @1559 ]
 "11915
@@ -587,55 +589,61 @@ TMR4_PWM4_OUT 14
 [v _nout nout `i  1 s 2 nout ]
 "51 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [v _dummy dummy `uc  1 e 1 0 ]
-"98
-[v _text5 text5 `[17]uc  1 e 17 0 ]
+"97
+[v _faultStr faultStr `[17]uc  1 e 17 0 ]
 "99
-[v _text6 text6 `[17]uc  1 e 17 0 ]
+[v _text5 text5 `[17]uc  1 e 17 0 ]
 "100
+[v _text6 text6 `[17]uc  1 e 17 0 ]
+"101
 [v _text7 text7 `[17]uc  1 e 17 0 ]
-"103
-[v _text9 text9 `[17]uc  1 e 17 0 ]
 "104
-[v _text10 text10 `[17]uc  1 e 17 0 ]
+[v _text9 text9 `[17]uc  1 e 17 0 ]
 "105
+[v _text10 text10 `[17]uc  1 e 17 0 ]
+"106
 [v _text11 text11 `[17]uc  1 e 17 0 ]
-"108
-[v _TC_data TC_data `ul  1 e 4 0 ]
 "109
-[v _temp_float temp_float `f  1 e 4 0 ]
+[v _TC_data TC_data `ul  1 e 4 0 ]
 "110
+[v _temp_float temp_float `f  1 e 4 0 ]
+"111
 [v _byteVal byteVal `uc  1 e 1 0 ]
 "57 C:\Users\johns\MPLABXProjects\K_Type_PID.X\mcc_generated_files/tmr4.c
 [v _TMR4_InterruptHandler TMR4_InterruptHandler `*.37(v  1 e 2 0 ]
-"113 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"114 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"151
-[v main@i i `i  1 a 2 33 ]
+"250
+[v main@fault_type fault_type `uc  1 a 1 26 ]
+"249
+[v main@fault fault `uc  1 a 1 25 ]
+"152
+[v main@i i `i  1 a 2 35 ]
+"148
+[v main@adc_value1 adc_value1 `us  1 a 2 33 ]
 "147
-[v main@adc_value1 adc_value1 `us  1 a 2 31 ]
-"146
-[v main@adc_value0 adc_value0 `us  1 a 2 29 ]
+[v main@adc_value0 adc_value0 `us  1 a 2 31 ]
+"151
+[v main@lower16 lower16 `us  1 a 2 29 ]
 "150
-[v main@lower16 lower16 `us  1 a 2 27 ]
-"149
-[v main@upper16 upper16 `us  1 a 2 25 ]
-"302
+[v main@upper16 upper16 `us  1 a 2 27 ]
+"312
 } 0
-"375
+"393
 [v _stuffIntToCharsBuf stuffIntToCharsBuf `(v  1 e 1 0 ]
 {
-"378
+"396
 [v stuffIntToCharsBuf@neg neg `i  1 a 2 19 ]
 [v stuffIntToCharsBuf@dig3 dig3 `i  1 a 2 17 ]
 [v stuffIntToCharsBuf@dig2 dig2 `i  1 a 2 15 ]
 [v stuffIntToCharsBuf@dig1 dig1 `i  1 a 2 13 ]
 [v stuffIntToCharsBuf@dig4 dig4 `i  1 a 2 11 ]
-"375
+"393
 [v stuffIntToCharsBuf@num num `i  1 p 2 3 ]
 [v stuffIntToCharsBuf@buf buf `*.4uc  1 p 1 5 ]
 [v stuffIntToCharsBuf@pos pos `i  1 p 2 6 ]
-"410
+"428
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -649,40 +657,40 @@ TMR4_PWM4_OUT 14
 "1390 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S1436 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S1436  1 a 1 wreg ]
+[s S1448 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S1448  1 a 1 wreg ]
 "1393
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 68 ]
 "1390
-[v vfprintf@fp fp `*.1S1436  1 a 1 wreg ]
+[v vfprintf@fp fp `*.1S1448  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 62 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 64 ]
 "1395
 "1390
-[v vfprintf@fp fp `*.1S1436  1 a 1 67 ]
+[v vfprintf@fp fp `*.1S1448  1 a 1 67 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[s S1436 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S1436  1 a 1 wreg ]
+[s S1448 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S1448  1 a 1 wreg ]
 "696
 [v vfpfcnvrt@ll ll `o  1 a 8 53 ]
 "692
-[v vfpfcnvrt@fp fp `*.1S1436  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.1S1448  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 46 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 47 ]
 "702
 "692
-[v vfpfcnvrt@fp fp `*.1S1436  1 a 1 61 ]
+[v vfpfcnvrt@fp fp `*.1S1448  1 a 1 61 ]
 "1387
 } 0
 "287
 [v _dtoa dtoa `(i  1 s 2 dtoa ]
 {
-[s S1436 _IO_FILE 0 ]
-[v dtoa@fp fp `*.1S1436  1 a 1 wreg ]
+[s S1448 _IO_FILE 0 ]
+[v dtoa@fp fp `*.1S1448  1 a 1 wreg ]
 "290
 [v dtoa@n n `o  1 a 8 36 ]
 "289
@@ -691,28 +699,28 @@ TMR4_PWM4_OUT 14
 [v dtoa@w w `i  1 a 2 32 ]
 [v dtoa@p p `i  1 a 2 29 ]
 "287
-[v dtoa@fp fp `*.1S1436  1 a 1 wreg ]
+[v dtoa@fp fp `*.1S1448  1 a 1 wreg ]
 [v dtoa@d d `o  1 p 8 16 ]
 "293
 "287
-[v dtoa@fp fp `*.1S1436  1 a 1 31 ]
+[v dtoa@fp fp `*.1S1448  1 a 1 31 ]
 "328
 } 0
 "72
 [v _pad pad `(i  1 s 2 pad ]
 {
-[s S1436 _IO_FILE 0 ]
-[v pad@fp fp `*.1S1436  1 a 1 wreg ]
+[s S1448 _IO_FILE 0 ]
+[v pad@fp fp `*.1S1448  1 a 1 wreg ]
 "74
 [v pad@w w `i  1 a 2 9 ]
 [v pad@i i `i  1 a 2 7 ]
 "72
-[v pad@fp fp `*.1S1436  1 a 1 wreg ]
+[v pad@fp fp `*.1S1448  1 a 1 wreg ]
 [v pad@buf buf `*.6uc  1 p 1 4 ]
 [v pad@p p `i  1 p 2 5 ]
 "77
 "72
-[v pad@fp fp `*.1S1436  1 a 1 11 ]
+[v pad@fp fp `*.1S1448  1 a 1 11 ]
 "95
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\strlen.c
@@ -737,8 +745,8 @@ TMR4_PWM4_OUT 14
 [v fputs@c c `uc  1 a 1 0 ]
 "8
 [v fputs@s s `*.6DCuc  1 a 1 wreg ]
-[s S1419 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputs@fp fp `*.1S1419  1 p 1 8 ]
+[s S1431 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputs@fp fp `*.1S1431  1 p 1 8 ]
 "13
 [v fputs@s s `*.6DCuc  1 a 1 3 ]
 "19
@@ -747,8 +755,8 @@ TMR4_PWM4_OUT 14
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S1419 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputc@fp fp `*.1S1419  1 p 1 2 ]
+[s S1431 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputc@fp fp `*.1S1431  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\putch.c
@@ -809,31 +817,31 @@ TMR4_PWM4_OUT 14
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"485 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"503 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [v _spi_read_32bits spi_read_32bits `(ul  1 e 4 0 ]
 {
-"492
+"510
 [v spi_read_32bits@i i `i  1 a 2 5 ]
-"486
+"504
 [v spi_read_32bits@result result `ul  1 a 4 1 ]
-"487
+"505
 [v spi_read_32bits@byte byte `uc  1 a 1 0 ]
-"503
+"521
 } 0
-"468
+"486
 [v _spi_transfer spi_transfer `(uc  1 e 1 0 ]
 {
 [v spi_transfer@data data `uc  1 a 1 wreg ]
 [v spi_transfer@data data `uc  1 a 1 wreg ]
 [v spi_transfer@data data `uc  1 a 1 0 ]
-"472
+"490
 } 0
-"346
+"364
 [v _setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
 {
 [v setMotorSpeed@num num `us  1 p 2 4 ]
 [v setMotorSpeed@motorNum motorNum `s  1 p 2 6 ]
-"352
+"370
 } 0
 "74 C:\Users\johns\MPLABXProjects\K_Type_PID.X\mcc_generated_files/pwm4.c
 [v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
@@ -847,36 +855,48 @@ TMR4_PWM4_OUT 14
 [v PWM3_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
 "81
 } 0
-"304 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"355 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+[v _reportfault reportfault `(v  1 e 1 0 ]
+{
+[v reportfault@s s `*.5uc  1 a 1 wreg ]
+"357
+[v reportfault@i i `i  1 a 2 12 ]
+"355
+[v reportfault@s s `*.5uc  1 a 1 wreg ]
+[v reportfault@fault fault `uc  1 p 1 9 ]
+[v reportfault@s s `*.5uc  1 a 1 11 ]
+"362
+} 0
+"314
 [v _printByteValue printByteValue `(v  1 e 1 0 ]
 {
 [v printByteValue@s s `*.5uc  1 a 1 wreg ]
-"308
+"318
 [v printByteValue@i i `i  1 a 2 3 ]
-"314
+"324
 [v printByteValue@upperBits upperBits `uc  1 a 1 1 ]
-"313
+"323
 [v printByteValue@lowerBits lowerBits `uc  1 a 1 0 ]
-"304
+"314
 [v printByteValue@s s `*.5uc  1 a 1 wreg ]
 [v printByteValue@byteVal byteVal `uc  1 p 1 9 ]
 [v printByteValue@pos pos `i  1 p 2 10 ]
-"313
+"323
 [v printByteValue@s s `*.5uc  1 a 1 2 ]
-"344
+"354
 } 0
-"355
+"373
 [v _convert14BitToFloat convert14BitToFloat `(f  1 e 4 0 ]
 {
-"359
+"377
 [v convert14BitToFloat@temp_Float temp_Float `f  1 a 4 30 ]
-"357
+"375
 [v convert14BitToFloat@raw14 raw14 `s  1 a 2 36 ]
-"358
+"376
 [v convert14BitToFloat@signed_int signed_int `s  1 a 2 34 ]
-"355
-[v convert14BitToFloat@raw14bit raw14bit `us  1 p 2 26 ]
 "373
+[v convert14BitToFloat@raw14bit raw14bit `us  1 p 2 26 ]
+"391
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -928,58 +948,58 @@ TMR4_PWM4_OUT 14
 {
 "88
 } 0
-"543 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
+"561 C:\Users\johns\MPLABXProjects\K_Type_PID.X\main.c
 [v _initDisplay initDisplay `(v  1 e 1 0 ]
 {
-"545
+"563
 [v initDisplay@i i `i  1 a 2 12 ]
-"553
+"571
 } 0
-"586
+"604
 [v _initOLED initOLED `(v  1 e 1 0 ]
 {
-"628
+"646
 } 0
-"554
+"572
 [v _dataCMD dataCMD `(v  1 e 1 0 ]
 {
 [v dataCMD@s s `uc  1 a 1 wreg ]
-"563
+"581
 [v dataCMD@i i `i  1 a 2 6 ]
-"561
+"579
 [v dataCMD@sendByte sendByte `uc  1 a 1 8 ]
-"560
+"578
 [v dataCMD@bit0 bit0 `uc  1 a 1 4 ]
-"554
+"572
 [v dataCMD@s s `uc  1 a 1 wreg ]
-"557
+"575
 [v dataCMD@s s `uc  1 a 1 5 ]
-"584
+"602
 } 0
-"511
+"529
 [v _command command `(v  1 e 1 0 ]
 {
 [v command@s s `uc  1 a 1 wreg ]
-"520
+"538
 [v command@i i `i  1 a 2 6 ]
-"518
+"536
 [v command@sendByte sendByte `uc  1 a 1 8 ]
-"517
+"535
 [v command@bit0 bit0 `uc  1 a 1 4 ]
-"511
+"529
 [v command@s s `uc  1 a 1 wreg ]
-"514
+"532
 [v command@s s `uc  1 a 1 5 ]
-"541
+"559
 } 0
-"504
+"522
 [v _spi_write spi_write `(v  1 e 1 0 ]
 {
 [v spi_write@spiByte spiByte `uc  1 a 1 wreg ]
 [v spi_write@spiByte spiByte `uc  1 a 1 wreg ]
-"506
+"524
 [v spi_write@spiByte spiByte `uc  1 a 1 1 ]
-"510
+"528
 } 0
 "63 C:\Users\johns\MPLABXProjects\K_Type_PID.X\mcc_generated_files/tmr4.c
 [v _TMR4_Initialize TMR4_Initialize `(v  1 e 1 0 ]

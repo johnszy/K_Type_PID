@@ -63,6 +63,7 @@ void setMotorSpeed(uint16_t, short int );
 float convert14BitToFloat(uint16_t );
 //float convert12BitToFloat(uint16_t);
 void printByteValue(char *, unsigned char, int);
+void reportfault(char * , uint8_t);
 void printADCValues(char *);
 void stuffIntToCharsBuf(int , unsigned char * , int );
 void uint32_to_text(uint32_t value, char text12[16]);
@@ -92,8 +93,8 @@ void uint32_to_text(uint32_t value, char text12[16]);
  *  */
 unsigned char text1[] = {"    johnszy     "};
 unsigned char text2[] = {"  Engineering   "};
-unsigned char text3[] = {"   Warming  Up  "};
-unsigned char text4[] = {" One Moment...  "};
+unsigned char text3[] =    {"   Warming  Up  "};
+unsigned char faultStr[] = {" TC Fault =     "};
 
 unsigned char text5[] = {" Powering Up... "};
 unsigned char text6[] = {"     howdy      "};
@@ -237,11 +238,20 @@ void main(void)
         }
         TC_data = spi_read_32bits();
         
+        
+        
         //uint32_to_text(TC_data, text12);
         
         upper16 = (TC_data >> 16) & 0xFFFF; // bits 31?16
         lower16 = TC_data & 0xFFFF;         // bits 15?0
         
+        //check for faults in upper and lower bytes
+        uint8_t fault = upper16 & 0x01;  //   = 1 if fault detected
+        uint8_t fault_type = lower16 & 0x07;   // bit0: open circuit, bit1:shortToGND, bit2: shortToVCC
+        if (fault > 0){
+           reportfault(faultStr, fault_type);
+           __delay_ms(2000);
+        }
         byteVal =  (upper16 >> 8) & 0xFF;
         printByteValue(text7, byteVal,0);
       
@@ -341,6 +351,14 @@ void printByteValue(char * s, unsigned char byteVal, int pos)
       dataCMD( text6[i] );
    }
 
+}
+void reportfault(char * s, uint8_t fault){
+    command(0x01);
+    int i;
+    s[11]= fault | '\x30';
+    for( i=0;i<16;i++){
+      dataCMD(s[i]);
+    }
 }
 
 void setMotorSpeed(uint16_t num, short int motorNum){

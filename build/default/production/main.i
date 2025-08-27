@@ -17708,14 +17708,15 @@ void setMotorSpeed(uint16_t, short int );
 float convert14BitToFloat(uint16_t );
 
 void printByteValue(char *, unsigned char, int);
+void reportfault(char * , uint8_t);
 void printADCValues(char *);
 void stuffIntToCharsBuf(int , unsigned char * , int );
 void uint32_to_text(uint32_t value, char text12[16]);
-# 93 "main.c"
+# 94 "main.c"
 unsigned char text1[] = {"    johnszy     "};
 unsigned char text2[] = {"  Engineering   "};
 unsigned char text3[] = {"   Warming  Up  "};
-unsigned char text4[] = {" One Moment...  "};
+unsigned char faultStr[] = {" TC Fault =     "};
 
 unsigned char text5[] = {" Powering Up... "};
 unsigned char text6[] = {"     howdy      "};
@@ -17737,9 +17738,9 @@ void main(void)
     _delay((unsigned long)((50)*(16000000/4000.0)));
 
     SYSTEM_Initialize();
-# 129 "main.c"
+# 130 "main.c"
      _delay((unsigned long)((500)*(16000000/4000.0)));
-# 146 "main.c"
+# 147 "main.c"
     adc_result_t adc_value0 = 0;
     adc_result_t adc_value1 = 0;
 
@@ -17755,7 +17756,7 @@ void main(void)
 
     while (1)
     {
-# 209 "main.c"
+# 210 "main.c"
         adc_value0 = ADC_GetConversion(channel_AN2);
         adc_value0 = adc_value0 >> 6;
         adc_value1 = ADC_GetConversion(channel_AN3);
@@ -17789,9 +17790,18 @@ void main(void)
 
 
 
+
+
         upper16 = (TC_data >> 16) & 0xFFFF;
         lower16 = TC_data & 0xFFFF;
 
+
+        uint8_t fault = upper16 & 0x01;
+        uint8_t fault_type = lower16 & 0x07;
+        if (fault > 0){
+           reportfault(faultStr, fault_type);
+           _delay((unsigned long)((2000)*(16000000/4000.0)));
+        }
         byteVal = (upper16 >> 8) & 0xFF;
         printByteValue(text7, byteVal,0);
 
@@ -17816,7 +17826,7 @@ void main(void)
 
         _delay((unsigned long)((2000)*(16000000/4000.0)));
     }
-# 302 "main.c"
+# 312 "main.c"
 }
 
 void printByteValue(char * s, unsigned char byteVal, int pos)
@@ -17860,6 +17870,14 @@ void printByteValue(char * s, unsigned char byteVal, int pos)
    }
 
 }
+void reportfault(char * s, uint8_t fault){
+    command(0x01);
+    int i;
+    s[11]= fault | '\x30';
+    for( i=0;i<16;i++){
+      dataCMD(s[i]);
+    }
+}
 
 void setMotorSpeed(uint16_t num, short int motorNum){
     if (motorNum == 1)
@@ -17875,7 +17893,7 @@ float convert14BitToFloat(uint16_t raw14bit) {
     int16_t raw14 = raw14bit & 0x3FFF;
     int16_t signed_int = (raw14 & 0x2000) ? (raw14 - 0x4000) : raw14;
     float temp_Float = signed_int / 4.0;
-# 372 "main.c"
+# 390 "main.c"
     return temp_Float;
 }
 
