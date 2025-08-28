@@ -371,9 +371,8 @@ typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
 # 48 "main.c" 2
 
-
-# 1 "./mcc_generated_files/mcc.h" 1
-# 48 "./mcc_generated_files/mcc.h"
+# 1 "./max31855.h" 1
+# 34 "./max31855.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -17200,8 +17199,16 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 2 3
-# 48 "./mcc_generated_files/mcc.h" 2
+# 34 "./max31855.h" 2
 
+
+
+
+
+
+
+# 1 "./mcc_generated_files/mcc.h" 1
+# 49 "./mcc_generated_files/mcc.h"
 # 1 "./mcc_generated_files/pin_manager.h" 1
 # 242 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
@@ -17225,8 +17232,15 @@ void PIN_MANAGER_IOC(void);
 typedef long ptrdiff_t;
 # 19 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stddef.h" 2 3
 # 54 "./mcc_generated_files/spi.h" 2
-# 70 "./mcc_generated_files/spi.h"
+# 69 "./mcc_generated_files/spi.h"
+unsigned char dummy;
+
 void SPI_Initialize(void);
+
+
+uint8_t spi_transfer(uint8_t data);
+
+void spi_write(unsigned char );
 # 53 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pwm3.h" 1
@@ -17691,46 +17705,64 @@ _Bool TMR2_HasOverflowOccured(void);
 void SYSTEM_Initialize(void);
 # 87 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 50 "main.c" 2
+# 41 "./max31855.h" 2
 
-unsigned char dummy;
+
+
+void init_TC(void);
+
+
+float getTemp_TC(void);
+
+
+float getDieTemp(void);
+
+
+uint8_t getFaultCodes(void);
+# 49 "main.c" 2
+
+
+
+
 unsigned long milliTime=0;
 
 unsigned long millis(void);
-uint32_t spi_read_32bits(void);
-uint8_t spi_transfer(uint8_t data);
-void spi_write(unsigned char );
+
+
+
 void initDisplay(void);
 void command(unsigned char );
 void dataCMD(unsigned char );
 void initOLED(void);
 void setMotorSpeed(uint16_t, short int );
-float convert14BitToFloat(uint16_t );
 
-void printByteValue(char *, unsigned char, int);
-void reportfault(char * , uint8_t);
+
+
+void reportfault( uint8_t);
 void printADCValues(char *);
 void stuffIntToCharsBuf(int , unsigned char * , int );
-void uint32_to_text(uint32_t value, char text12[16]);
-# 94 "main.c"
+# 96 "main.c"
 unsigned char text1[] = {"    johnszy     "};
 unsigned char text2[] = {"  Engineering   "};
 unsigned char text3[] = {"   Warming  Up  "};
-unsigned char faultStr[] = {" TC Fault =     "};
+
 
 unsigned char text5[] = {" Powering Up... "};
 unsigned char text6[] = {"     howdy      "};
 unsigned char text7[] = {"                "};
-unsigned char text8[] = {"  Green Button  "};
+
 
 unsigned char text9[] = {"  Pot1   Pot2   "};
 unsigned char text10[] = {"  0000   0000   "};
 unsigned char text11[] = {"  Temp  C       "};
 char text12[16];
 
-uint32_t TC_data = 0;
-float temp_float =0 ;
-unsigned char byteVal = '\x00' ;
+float tcTemp, dieTemp;
+uint8_t faults;
+
+
+
+
 
 
 void main(void)
@@ -17738,9 +17770,9 @@ void main(void)
     _delay((unsigned long)((50)*(16000000/4000.0)));
 
     SYSTEM_Initialize();
-# 130 "main.c"
+# 135 "main.c"
      _delay((unsigned long)((500)*(16000000/4000.0)));
-# 147 "main.c"
+# 152 "main.c"
     adc_result_t adc_value0 = 0;
     adc_result_t adc_value1 = 0;
 
@@ -17756,7 +17788,7 @@ void main(void)
 
     while (1)
     {
-# 210 "main.c"
+
         adc_value0 = ADC_GetConversion(channel_AN2);
         adc_value0 = adc_value0 >> 6;
         adc_value1 = ADC_GetConversion(channel_AN3);
@@ -17769,7 +17801,7 @@ void main(void)
 
         stuffIntToCharsBuf(adc_value0 , text10 , 2 );
         stuffIntToCharsBuf(adc_value1 , text10 , 9 );
-                command(0x01);
+        command(0x01);
         _delay((unsigned long)((2)*(16000000/4000.0)));
         for(i=0;i<16;i++){
           dataCMD(text9[i]);
@@ -17786,96 +17818,43 @@ void main(void)
         for(i=0;i<16;i++){
           dataCMD(text11[i]);
         }
-        TC_data = spi_read_32bits();
 
+        tcTemp = getTemp_TC();
+        dieTemp = getDieTemp();
 
-
-
-
-        upper16 = (TC_data >> 16) & 0xFFFF;
-        lower16 = TC_data & 0xFFFF;
-
-
-        uint8_t fault = upper16 & 0x01;
-        uint8_t fault_type = lower16 & 0x07;
-        if (fault > 0){
-           reportfault(faultStr, fault_type);
+        faults = getFaultCodes();
+        if (faults > 0){
+           reportfault( faults);
            _delay((unsigned long)((2000)*(16000000/4000.0)));
         }
-        byteVal = (upper16 >> 8) & 0xFF;
-        printByteValue(text7, byteVal,0);
 
-        byteVal = upper16 & 0xFF;
-        printByteValue(text7, byteVal,1);
+        command(0x01);
+        _delay((unsigned long)((2)*(16000000/4000.0)));
 
-        byteVal = (lower16 >> 8) & 0xFF;
-        printByteValue(text7, byteVal,2);
+        for(i=0;i<16;i++){
+            dataCMD(text11[i]);
+        }
 
-        byteVal = lower16 & 0xFF;
-        printByteValue(text7, byteVal,3);
-        _delay((unsigned long)((2000)*(16000000/4000.0)));
 
-        temp_float = convert14BitToFloat((upper16 >>2));
-
-        stuffIntToCharsBuf( (int16_t)temp_float , text10 , 2 );
-        stuffIntToCharsBuf((lower16 >>8) , text10 , 9 );
+        stuffIntToCharsBuf( (int16_t)tcTemp , text10 , 2 );
+        stuffIntToCharsBuf( (int16_t)dieTemp , text10 , 9 );
         command(0xA0);
         for(i=0;i<16;i++){
           dataCMD(text10[i]);
         }
-
         _delay((unsigned long)((2000)*(16000000/4000.0)));
+# 277 "main.c"
     }
-# 312 "main.c"
-}
-
-void printByteValue(char * s, unsigned char byteVal, int pos)
-{
-
-
-   int i;
-
-
-
-
-   unsigned char lowerBits = byteVal & '\x0F';
-   unsigned char upperBits = (byteVal >> 4) & '\x0F';
-
-
-   if (lowerBits< 10)
-       s[2*pos+1]= lowerBits | '\x30';
-   else
-       s[2*pos+1] = ((lowerBits-1)&'\x07') | '\x40';
-
-
-   if (upperBits< 10)
-       s[2*pos]= upperBits | '\x30';
-   else
-       s[2*pos] = ((upperBits- 1)&'\x07') | '\x40';
-
-   command(0x01);
-   _delay((unsigned long)((2)*(16000000/4000.0)));
-   for(i=0;i<16;i++){
-      dataCMD(s[i]);
-   }
-
-
-
-
-
-
-   command(0xA0);
-   for(i=0;i<16;i++){
-      dataCMD( text6[i] );
-   }
 
 }
-void reportfault(char * s, uint8_t fault){
+# 323 "main.c"
+void reportfault( uint8_t fault){
+    unsigned char faultStr[] = {" TC Fault =     "};
     command(0x01);
     int i;
-    s[11]= fault | '\x30';
+    faultStr[11]= fault | '\x30';
     for( i=0;i<16;i++){
-      dataCMD(s[i]);
+      dataCMD(faultStr[i]);
     }
 }
 
@@ -17885,16 +17864,6 @@ void setMotorSpeed(uint16_t num, short int motorNum){
     if (motorNum == 2)
         PWM4_LoadDutyValue(num);
 
-}
-
-
-float convert14BitToFloat(uint16_t raw14bit) {
-
-    int16_t raw14 = raw14bit & 0x3FFF;
-    int16_t signed_int = (raw14 & 0x2000) ? (raw14 - 0x4000) : raw14;
-    float temp_Float = signed_int / 4.0;
-# 390 "main.c"
-    return temp_Float;
 }
 
 void stuffIntToCharsBuf(int num, unsigned char * buf, int pos ){
@@ -17990,49 +17959,6 @@ unsigned long millis(){
     return milliTime;
 }
 
-uint8_t spi_transfer(uint8_t data) {
-    SSP1BUF = data;
-    while(!SSP1STATbits.BF);
-    return SSP1BUF;
-}
-
-void uint32_to_text(uint32_t value, char text12[16]) {
-
-
-
-
-
-
-
-}
-
-
-uint32_t spi_read_32bits(void) {
-    uint32_t result = 0;
-    uint8_t byte;
-
-
-    LATC6 = 0;
-
-    for (int i = 0; i < 4; i++) {
-        byte = spi_transfer(0x00);
-        LATC6 = 0;
-        result = (result << 8) | byte;
-        LATC6 = 0;
-    }
-
-
-    LATC6 = 1;
-
-    return result;
-}
-void spi_write(unsigned char spiByte)
-{
-     SSPBUF=spiByte;
-
-     while(!BF );
-     dummy= SSPBUF;
-}
 void command(unsigned char s)
 {
 

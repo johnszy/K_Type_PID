@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/mcc.c"
+# 1 "max31855.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,36 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/mcc.c" 2
-# 49 "mcc_generated_files/mcc.c"
-#pragma config FOSC = INTOSC
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config BOREN = ON
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCD = OFF
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-
-
-#pragma config WDTCPS = WDTCPS1F
-#pragma config WDTE = OFF
-#pragma config WDTCWS = WDTCWSSW
-#pragma config WDTCCS = SWC
-
-
-# 1 "mcc_generated_files/mcc.h" 1
-# 48 "mcc_generated_files/mcc.h"
+# 1 "max31855.c" 2
+# 1 "./max31855.h" 1
+# 34 "./max31855.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -16950,14 +16923,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 2 3
-# 48 "mcc_generated_files/mcc.h" 2
+# 34 "./max31855.h" 2
 
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 242 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 254 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 49 "mcc_generated_files/mcc.h" 2
+
+
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
@@ -17044,24 +17015,34 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 50 "mcc_generated_files/mcc.h" 2
+# 40 "./max31855.h" 2
+
+# 1 "./mcc_generated_files/mcc.h" 1
+# 49 "./mcc_generated_files/mcc.h"
+# 1 "./mcc_generated_files/pin_manager.h" 1
+# 242 "./mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+# 254 "./mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_IOC(void);
+# 49 "./mcc_generated_files/mcc.h" 2
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
-# 51 "mcc_generated_files/mcc.h" 2
+# 51 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/interrupt_manager.h" 1
-# 52 "mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 52 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/spi.h" 1
-# 54 "mcc_generated_files/spi.h"
+# 1 "./mcc_generated_files/spi.h" 1
+# 54 "./mcc_generated_files/spi.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stddef.h" 1 3
 # 19 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stddef.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
 # 132 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ptrdiff_t;
 # 19 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stddef.h" 2 3
-# 54 "mcc_generated_files/spi.h" 2
-# 69 "mcc_generated_files/spi.h"
+# 54 "./mcc_generated_files/spi.h" 2
+# 69 "./mcc_generated_files/spi.h"
 unsigned char dummy;
 
 void SPI_Initialize(void);
@@ -17070,24 +17051,24 @@ void SPI_Initialize(void);
 uint8_t spi_transfer(uint8_t data);
 
 void spi_write(unsigned char );
-# 53 "mcc_generated_files/mcc.h" 2
+# 53 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/pwm3.h" 1
-# 101 "mcc_generated_files/pwm3.h"
+# 1 "./mcc_generated_files/pwm3.h" 1
+# 101 "./mcc_generated_files/pwm3.h"
  void PWM3_Initialize(void);
-# 128 "mcc_generated_files/pwm3.h"
+# 128 "./mcc_generated_files/pwm3.h"
  void PWM3_LoadDutyValue(uint16_t dutyValue);
-# 54 "mcc_generated_files/mcc.h" 2
+# 54 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/pwm4.h" 1
-# 101 "mcc_generated_files/pwm4.h"
+# 1 "./mcc_generated_files/pwm4.h" 1
+# 101 "./mcc_generated_files/pwm4.h"
  void PWM4_Initialize(void);
-# 128 "mcc_generated_files/pwm4.h"
+# 128 "./mcc_generated_files/pwm4.h"
  void PWM4_LoadDutyValue(uint16_t dutyValue);
-# 55 "mcc_generated_files/mcc.h" 2
+# 55 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/adc.h" 1
-# 71 "mcc_generated_files/adc.h"
+# 1 "./mcc_generated_files/adc.h" 1
+# 71 "./mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
 
@@ -17098,7 +17079,7 @@ typedef struct
     adc_result_t adcResult1;
     adc_result_t adcResult2;
 } adc_sync_double_result_t;
-# 94 "mcc_generated_files/adc.h"
+# 94 "./mcc_generated_files/adc.h"
 typedef enum
 {
     channel_AN2 = 0x2,
@@ -17107,25 +17088,25 @@ typedef enum
     channel_DAC = 0x1E,
     channel_FVR = 0x1F
 } adc_channel_t;
-# 136 "mcc_generated_files/adc.h"
+# 136 "./mcc_generated_files/adc.h"
 void ADC_Initialize(void);
-# 166 "mcc_generated_files/adc.h"
+# 166 "./mcc_generated_files/adc.h"
 void ADC_SelectChannel(adc_channel_t channel);
-# 193 "mcc_generated_files/adc.h"
+# 193 "./mcc_generated_files/adc.h"
 void ADC_StartConversion();
-# 225 "mcc_generated_files/adc.h"
+# 225 "./mcc_generated_files/adc.h"
 _Bool ADC_IsConversionDone();
-# 258 "mcc_generated_files/adc.h"
+# 258 "./mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversionResult(void);
-# 288 "mcc_generated_files/adc.h"
+# 288 "./mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 56 "mcc_generated_files/mcc.h" 2
+# 56 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/tmr4.h" 1
-# 78 "mcc_generated_files/tmr4.h"
+# 1 "./mcc_generated_files/tmr4.h" 1
+# 78 "./mcc_generated_files/tmr4.h"
 typedef enum
 {
-# 88 "mcc_generated_files/tmr4.h"
+# 88 "./mcc_generated_files/tmr4.h"
    TMR4_ROP_STARTS_TMRON,
 
 
@@ -17162,7 +17143,7 @@ typedef enum
 
 
    TMR4_ROP_RESETS_ERSHIGH,
-# 134 "mcc_generated_files/tmr4.h"
+# 134 "./mcc_generated_files/tmr4.h"
    TMR4_OS_STARTS_TMRON,
 
 
@@ -17212,7 +17193,7 @@ typedef enum
 
 
    TMR4_OS_STARTS_TMRON_ERSLOW = 0x17,
-# 191 "mcc_generated_files/tmr4.h"
+# 191 "./mcc_generated_files/tmr4.h"
    TMR4_MS_STARTS_TMRON_ERSRISINGEDGEDETECT = 0x11,
 
 
@@ -17227,7 +17208,7 @@ typedef enum
    TMR4_MS_STARTS_TMRON_ERSBOTHEDGE = 0x13
 
 } TMR4_HLT_MODE;
-# 219 "mcc_generated_files/tmr4.h"
+# 219 "./mcc_generated_files/tmr4.h"
 typedef enum
 {
 
@@ -17292,49 +17273,49 @@ typedef enum
     TMR4_PWM4_OUT
 
 } TMR4_HLT_EXT_RESET_SOURCE;
-# 324 "mcc_generated_files/tmr4.h"
+# 324 "./mcc_generated_files/tmr4.h"
 void TMR4_Initialize(void);
-# 360 "mcc_generated_files/tmr4.h"
+# 360 "./mcc_generated_files/tmr4.h"
 void TMR4_ModeSet(TMR4_HLT_MODE mode);
-# 395 "mcc_generated_files/tmr4.h"
+# 395 "./mcc_generated_files/tmr4.h"
 void TMR4_ExtResetSourceSet(TMR4_HLT_EXT_RESET_SOURCE reset);
-# 424 "mcc_generated_files/tmr4.h"
+# 424 "./mcc_generated_files/tmr4.h"
 void TMR4_Start(void);
-# 453 "mcc_generated_files/tmr4.h"
+# 453 "./mcc_generated_files/tmr4.h"
 void TMR4_StartTimer(void);
-# 485 "mcc_generated_files/tmr4.h"
+# 485 "./mcc_generated_files/tmr4.h"
 void TMR4_Stop(void);
-# 517 "mcc_generated_files/tmr4.h"
+# 517 "./mcc_generated_files/tmr4.h"
 void TMR4_StopTimer(void);
-# 552 "mcc_generated_files/tmr4.h"
+# 552 "./mcc_generated_files/tmr4.h"
 uint8_t TMR4_Counter8BitGet(void);
-# 587 "mcc_generated_files/tmr4.h"
+# 587 "./mcc_generated_files/tmr4.h"
 uint8_t TMR4_ReadTimer(void);
-# 626 "mcc_generated_files/tmr4.h"
+# 626 "./mcc_generated_files/tmr4.h"
 void TMR4_Counter8BitSet(uint8_t timerVal);
-# 665 "mcc_generated_files/tmr4.h"
+# 665 "./mcc_generated_files/tmr4.h"
 void TMR4_WriteTimer(uint8_t timerVal);
-# 717 "mcc_generated_files/tmr4.h"
+# 717 "./mcc_generated_files/tmr4.h"
 void TMR4_Period8BitSet(uint8_t periodVal);
-# 769 "mcc_generated_files/tmr4.h"
+# 769 "./mcc_generated_files/tmr4.h"
 void TMR4_LoadPeriodRegister(uint8_t periodVal);
-# 787 "mcc_generated_files/tmr4.h"
+# 787 "./mcc_generated_files/tmr4.h"
 void TMR4_ISR(void);
-# 805 "mcc_generated_files/tmr4.h"
+# 805 "./mcc_generated_files/tmr4.h"
  void TMR4_CallBack(void);
-# 822 "mcc_generated_files/tmr4.h"
+# 822 "./mcc_generated_files/tmr4.h"
  void TMR4_SetInterruptHandler(void (* InterruptHandler)(void));
-# 840 "mcc_generated_files/tmr4.h"
+# 840 "./mcc_generated_files/tmr4.h"
 extern void (*TMR4_InterruptHandler)(void);
-# 858 "mcc_generated_files/tmr4.h"
+# 858 "./mcc_generated_files/tmr4.h"
 void TMR4_DefaultInterruptHandler(void);
-# 57 "mcc_generated_files/mcc.h" 2
+# 57 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/tmr2.h" 1
-# 78 "mcc_generated_files/tmr2.h"
+# 1 "./mcc_generated_files/tmr2.h" 1
+# 78 "./mcc_generated_files/tmr2.h"
 typedef enum
 {
-# 88 "mcc_generated_files/tmr2.h"
+# 88 "./mcc_generated_files/tmr2.h"
    TMR2_ROP_STARTS_TMRON,
 
 
@@ -17371,7 +17352,7 @@ typedef enum
 
 
    TMR2_ROP_RESETS_ERSHIGH,
-# 134 "mcc_generated_files/tmr2.h"
+# 134 "./mcc_generated_files/tmr2.h"
    TMR2_OS_STARTS_TMRON,
 
 
@@ -17421,7 +17402,7 @@ typedef enum
 
 
    TMR2_OS_STARTS_TMRON_ERSLOW = 0x17,
-# 191 "mcc_generated_files/tmr2.h"
+# 191 "./mcc_generated_files/tmr2.h"
    TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT = 0x11,
 
 
@@ -17436,7 +17417,7 @@ typedef enum
    TMR2_MS_STARTS_TMRON_ERSBOTHEDGE = 0x13
 
 } TMR2_HLT_MODE;
-# 219 "mcc_generated_files/tmr2.h"
+# 219 "./mcc_generated_files/tmr2.h"
 typedef enum
 {
 
@@ -17501,60 +17482,117 @@ typedef enum
     TMR2_PWM4_OUT
 
 } TMR2_HLT_EXT_RESET_SOURCE;
-# 324 "mcc_generated_files/tmr2.h"
+# 324 "./mcc_generated_files/tmr2.h"
 void TMR2_Initialize(void);
-# 360 "mcc_generated_files/tmr2.h"
+# 360 "./mcc_generated_files/tmr2.h"
 void TMR2_ModeSet(TMR2_HLT_MODE mode);
-# 395 "mcc_generated_files/tmr2.h"
+# 395 "./mcc_generated_files/tmr2.h"
 void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
-# 424 "mcc_generated_files/tmr2.h"
+# 424 "./mcc_generated_files/tmr2.h"
 void TMR2_Start(void);
-# 453 "mcc_generated_files/tmr2.h"
+# 453 "./mcc_generated_files/tmr2.h"
 void TMR2_StartTimer(void);
-# 485 "mcc_generated_files/tmr2.h"
+# 485 "./mcc_generated_files/tmr2.h"
 void TMR2_Stop(void);
-# 517 "mcc_generated_files/tmr2.h"
+# 517 "./mcc_generated_files/tmr2.h"
 void TMR2_StopTimer(void);
-# 552 "mcc_generated_files/tmr2.h"
+# 552 "./mcc_generated_files/tmr2.h"
 uint8_t TMR2_Counter8BitGet(void);
-# 587 "mcc_generated_files/tmr2.h"
+# 587 "./mcc_generated_files/tmr2.h"
 uint8_t TMR2_ReadTimer(void);
-# 626 "mcc_generated_files/tmr2.h"
+# 626 "./mcc_generated_files/tmr2.h"
 void TMR2_Counter8BitSet(uint8_t timerVal);
-# 665 "mcc_generated_files/tmr2.h"
+# 665 "./mcc_generated_files/tmr2.h"
 void TMR2_WriteTimer(uint8_t timerVal);
-# 717 "mcc_generated_files/tmr2.h"
+# 717 "./mcc_generated_files/tmr2.h"
 void TMR2_Period8BitSet(uint8_t periodVal);
-# 769 "mcc_generated_files/tmr2.h"
+# 769 "./mcc_generated_files/tmr2.h"
 void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 807 "mcc_generated_files/tmr2.h"
+# 807 "./mcc_generated_files/tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
-# 58 "mcc_generated_files/mcc.h" 2
-# 74 "mcc_generated_files/mcc.h"
+# 58 "./mcc_generated_files/mcc.h" 2
+# 74 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 87 "mcc_generated_files/mcc.h"
+# 87 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 74 "mcc_generated_files/mcc.c" 2
+# 41 "./max31855.h" 2
 
-extern void initDisplay(void);
-void SYSTEM_Initialize(void)
-{
 
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    SPI_Initialize();
-    initDisplay();
-    ADC_Initialize();
-    PWM4_Initialize();
-    TMR4_Initialize();
-    PWM3_Initialize();
-    TMR2_Initialize();
+
+void init_TC(void);
+
+
+float getTemp_TC(void);
+
+
+float getDieTemp(void);
+
+
+uint8_t getFaultCodes(void);
+# 1 "max31855.c" 2
+
+
+
+
+
+
+
+static uint32_t readRawData(void) {
+
+
+
+    uint32_t result = 0;
+    uint8_t byte;
+
+
+    LATC6 = 0;
+
+    for (int i = 0; i < 4; i++) {
+        byte = spi_transfer(0x00);
+        LATC6 = 0;
+        result = (result << 8) | byte;
+        LATC6 = 0;
+    }
+
+
+    LATC6 = 1;
+
+    return result;
 }
 
-void OSCILLATOR_Initialize(void)
-{
+void init_TC(void) {
 
-    OSCCON = 0x78;
 
-    OSCTUNE = 0x00;
+}
+
+float getTemp_TC(void) {
+    uint32_t raw = readRawData();
+
+
+    int16_t temp_tc = (raw >> 18) & 0x3FFF;
+    if (temp_tc & 0x2000) {
+        temp_tc |= 0xC000;
+    }
+    return (float)temp_tc * 0.25f;
+}
+
+float getDieTemp(void) {
+    uint32_t raw = readRawData();
+
+
+    int16_t temp_die = (raw >> 4) & 0x0FFF;
+    if (temp_die & 0x0800) {
+        temp_die |= 0xF000;
+    }
+    return (float)temp_die * 0.0625f;
+}
+
+uint8_t getFaultCodes(void) {
+    uint32_t raw = readRawData();
+
+
+    if (raw & 0x00010000) {
+        return (uint8_t)(raw & 0x07);
+    }
+    return 0;
 }

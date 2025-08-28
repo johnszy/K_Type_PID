@@ -73,6 +73,20 @@ void SPI_Initialize(void)
     // SSP1ADD 0; 
     SSP1ADD = 0x00;
 }
+
+uint8_t spi_transfer(uint8_t data) {
+    SSP1BUF = data;                // Start transmission
+    while(!SSP1STATbits.BF);       // Wait until buffer full (data received)
+    return SSP1BUF;                // Return received byte
+}
+
+void spi_write(unsigned char spiByte)
+{
+     SSPBUF=spiByte;	//write byte to sspbuf, which starts transfer
+     
+     while(!BF );	//wait until transfer complete
+     dummy= SSPBUF;	//read out the data to clear flags
+}
 /*
 uint8_t SPI_Exchange8bit(uint8_t data)
 {

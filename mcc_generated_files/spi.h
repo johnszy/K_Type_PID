@@ -66,9 +66,14 @@
 
 #define DUMMY_DATA 0x0
 
+unsigned char dummy;
 
 void SPI_Initialize(void);
 
+// should be spi_read
+uint8_t spi_transfer(uint8_t data); 
+
+void spi_write(unsigned char );
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 

@@ -17023,8 +17023,15 @@ typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
 # 55 "mcc_generated_files/spi.h" 2
-# 70 "mcc_generated_files/spi.h"
+# 69 "mcc_generated_files/spi.h"
+unsigned char dummy;
+
 void SPI_Initialize(void);
+
+
+uint8_t spi_transfer(uint8_t data);
+
+void spi_write(unsigned char );
 # 51 "mcc_generated_files/spi.c" 2
 # 63 "mcc_generated_files/spi.c"
 void SPI_Initialize(void)
@@ -17039,4 +17046,18 @@ void SPI_Initialize(void)
 
 
     SSP1ADD = 0x00;
+}
+
+uint8_t spi_transfer(uint8_t data) {
+    SSP1BUF = data;
+    while(!SSP1STATbits.BF);
+    return SSP1BUF;
+}
+
+void spi_write(unsigned char spiByte)
+{
+     SSPBUF=spiByte;
+
+     while(!BF );
+     dummy= SSPBUF;
 }

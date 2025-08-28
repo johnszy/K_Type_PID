@@ -46,27 +46,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-
+#include "max31855.h"
 #include "mcc_generated_files/mcc.h"
-unsigned char dummy;
+
+//unsigned char dummy;
 unsigned long milliTime=0;
 
 unsigned long millis(void);
-uint32_t spi_read_32bits(void);
-uint8_t spi_transfer(uint8_t data); 
-void spi_write(unsigned char );
+//uint32_t spi_read_32bits(void);
+//uint8_t spi_transfer(uint8_t data); 
+//void spi_write(unsigned char );
 void initDisplay(void);
 void command(unsigned char );
 void dataCMD(unsigned char );
 void initOLED(void);
 void setMotorSpeed(uint16_t, short int );
-float convert14BitToFloat(uint16_t );
+//float convert14BitToFloat(uint16_t );
 //float convert12BitToFloat(uint16_t);
-void printByteValue(char *, unsigned char, int);
-void reportfault(char * , uint8_t);
+//void printByteValue(char *, unsigned char, int);
+void reportfault( uint8_t);
 void printADCValues(char *);
 void stuffIntToCharsBuf(int , unsigned char * , int );
-void uint32_to_text(uint32_t value, char text12[16]);
+//void uint32_to_text(uint32_t value, char text12[16]);
+//void stuffFloatToCharsBuf(float , unsigned char *, int , int );
 /*
                          Main application
 
@@ -94,21 +96,24 @@ void uint32_to_text(uint32_t value, char text12[16]);
 unsigned char text1[] = {"    johnszy     "};
 unsigned char text2[] = {"  Engineering   "};
 unsigned char text3[] =    {"   Warming  Up  "};
-unsigned char faultStr[] = {" TC Fault =     "};
+//unsigned char faultStr[] = {" TC Fault =     "};
 
 unsigned char text5[] = {" Powering Up... "};
 unsigned char text6[] = {"     howdy      "};
 unsigned char text7[] = {"                "};
-unsigned char text8[] = {"  Green Button  "};
+//unsigned char text8[] = {"  Green Button  "};
 
 unsigned char text9[] = {"  Pot1   Pot2   "};
 unsigned char text10[] = {"  0000   0000   "};
 unsigned char text11[] = {"  Temp  C       "};
 char text12[16];
 
-uint32_t TC_data = 0;
-float temp_float =0 ;
-unsigned char byteVal = '\x00' ;
+float tcTemp, dieTemp;
+uint8_t faults;
+
+//uint32_t TC_data = 0;
+//float temp_float =0 ;
+//unsigned char byteVal = '\x00' ;
 //float dieTemp_float = 0;
 
 void main(void)
@@ -159,54 +164,7 @@ void main(void)
     
     while (1)
     {
-//        command(0x01);
-//        __delay_ms(2);
-//        for(i=0;i<16;i++){
-//          dataCMD(text9[i]);
-//        }
-//        
-//        command(0xA0);
-//        for(i=0;i<16;i++){
-//          dataCMD(text10[i]);
-//        }
-//        __delay_ms(3000);
-//        stuffIntToCharsBuf(37 , text10 , 2 );  
-//        stuffIntToCharsBuf(1021 , text10 , 9 );
-//        
-//        command(0xA0);
-//        for(i=0;i<16;i++){
-//          dataCMD(text10[i]);
-//        }
-//        __delay_ms(3000);      
-//        
-//                stuffIntToCharsBuf(37 , text10 , 2 );  
-//        stuffIntToCharsBuf(1021 , text10 , 9 );
-//        
-//        command(0xA0);
-//        for(i=0;i<16;i++){
-//          dataCMD(text10[i]);
-//        }
-//        __delay_ms(3000);  
-//        
-//        stuffIntToCharsBuf(19 , text10 , 2 );  
-//        stuffIntToCharsBuf(6 , text10 , 9 );
-//        
-//        command(0xA0);
-//        for(i=0;i<16;i++){
-//          dataCMD(text10[i]);
-//        }
-//        __delay_ms(3000);  
-//        
-//        stuffIntToCharsBuf(225 , text10 , 2 );  
-//        stuffIntToCharsBuf(10 , text10 , 9 );
-//        
-//        command(0xA0);
-//        for(i=0;i<16;i++){
-//          dataCMD(text10[i]);
-//        }
-//        __delay_ms(3000);  
-//        
-                
+            
         adc_value0 = ADC_GetConversion(channel_AN2);
         adc_value0 = adc_value0 >> 6;
         adc_value1 = ADC_GetConversion(channel_AN3);
@@ -219,7 +177,7 @@ void main(void)
        
         stuffIntToCharsBuf(adc_value0 , text10 , 2 );  
         stuffIntToCharsBuf(adc_value1 , text10 , 9 );
-                command(0x01);
+        command(0x01);
         __delay_ms(2);
         for(i=0;i<16;i++){
           dataCMD(text9[i]);
@@ -236,8 +194,40 @@ void main(void)
         for(i=0;i<16;i++){
           dataCMD(text11[i]);
         }
-        TC_data = spi_read_32bits();
         
+        tcTemp = getTemp_TC();
+        dieTemp = getDieTemp();
+        
+        faults  = getFaultCodes();
+        if (faults > 0){
+           reportfault( faults);
+           __delay_ms(2000);
+        }
+        
+        command(0x01);
+        __delay_ms(2);
+ 
+        for(i=0;i<16;i++){
+            dataCMD(text11[i]);
+        }
+        
+        
+        stuffIntToCharsBuf( (int16_t)tcTemp , text10 , 2 );  
+        stuffIntToCharsBuf( (int16_t)dieTemp  , text10 , 9 );
+        command(0xA0);
+        for(i=0;i<16;i++){
+          dataCMD(text10[i]);
+        }
+        __delay_ms(2000);
+        
+        //stuffFloatToCharsBuf( 20.7877,  text7,  0,  2) ;
+        //__delay_ms(2000);
+        
+        //stuffFloatToCharsBuf( -23.5544,  text7,  0,  4) ;
+        //__delay_ms(2000);
+        
+        /*
+        TC_data = spi_read_32bits();
         
         
         //uint32_to_text(TC_data, text12);
@@ -249,9 +239,10 @@ void main(void)
         uint8_t fault = upper16 & 0x01;  //   = 1 if fault detected
         uint8_t fault_type = lower16 & 0x07;   // bit0: open circuit, bit1:shortToGND, bit2: shortToVCC
         if (fault > 0){
-           reportfault(faultStr, fault_type);
+           reportfault( fault_type);
            __delay_ms(2000);
         }
+        
         byteVal =  (upper16 >> 8) & 0xFF;
         printByteValue(text7, byteVal,0);
       
@@ -266,6 +257,13 @@ void main(void)
         __delay_ms(2000);
         
         temp_float = convert14BitToFloat((upper16 >>2));
+        
+        stuffFloatToCharsBuf( temp_float,  text10,  0,  2) ;
+        __delay_ms(2000);
+        
+        stuffFloatToCharsBuf( -12.344, text10, 0, 2) ;
+        __delay_ms(2000);
+        
         //dieTemp_float = convert12BitToFloat((lower16 >>6));
         stuffIntToCharsBuf( (int16_t)temp_float , text10 , 2 );  
         stuffIntToCharsBuf((lower16 >>8) , text10 , 9 );
@@ -275,42 +273,11 @@ void main(void)
         }
         
         __delay_ms(2000);
+        */
     }
-    //        command(0x01);
-    //        __delay_ms(2);
-    //        for (i=0;i<16;i++){
-    //		dataCMD(text3[i]);
-    //        }
-    //	
-    //        adc_value0 = ADC_GetConversion( channel_AN2);
-    //   
-    //        //adc_value1 = ADC_GetConversion( channel_AN3);
-    //        
-    //        command(0xA0);
-    //        for (i=0;i<16;i++){
-    //		dataCMD(text4[i]);
-    //        }
-    //
-    //        __delay_ms(3500);
-    //        
-    //        printRegValue( text5 );
-    //        
-    //        __delay_ms(3000);
-    //
-    //        command(0x01);
-    //        __delay_ms(2);
-    //        for (i=0;i<16;i++){
-    //		dataCMD(text7[i]);
-    //        }
-    //	
-    //        command(0xA0);
-    //        for (i=0;i<16;i++){
-    //		dataCMD(text8[i]);
-    //        }
-    //        __delay_ms(3000);
-    //    }
-}
 
+}
+/*
 void printByteValue(char * s, unsigned char byteVal, int pos)
 {
 
@@ -352,12 +319,14 @@ void printByteValue(char * s, unsigned char byteVal, int pos)
    }
 
 }
-void reportfault(char * s, uint8_t fault){
+*/
+void reportfault( uint8_t fault){
+    unsigned char faultStr[] = {" TC Fault =     "};
     command(0x01);
     int i;
-    s[11]= fault | '\x30';
+    faultStr[11]= fault | '\x30';
     for( i=0;i<16;i++){
-      dataCMD(s[i]);
+      dataCMD(faultStr[i]);
     }
 }
 
@@ -369,27 +338,6 @@ void setMotorSpeed(uint16_t num, short int motorNum){
 
 }
 
-// Convert 14-bit fixed-point (Q12.2) to float
-float convert14BitToFloat(uint16_t raw14bit) {
-    
-    int16_t raw14 = raw14bit & 0x3FFF;                 // keep 14 bits
-    int16_t signed_int = (raw14 & 0x2000) ? (raw14 - 0x4000) : raw14;  // two's complement
-    float temp_Float = signed_int / 4.0;               // 2 fractional bits
-
-    
-    // Sign-extend from 14 bits to 16 bits
-    //if (raw14bit & 0x2000) { // If sign bit is set (bit 13)
-    //    raw14bit |= 0xC000;  // Set bits 14 and 15 to preserve sign
-    //}
-
-    // Convert to signed 16-bit
-    //int16_t signedVal = (int16_t)raw14bit;
-
-    // Divide by 4.0 to convert from Q12.2 fixed-point to float
-    //return signedVal / 4.0f;
-    return temp_Float;
-}
-
 void stuffIntToCharsBuf(int num, unsigned char * buf, int pos ){
 
   printf("num= %d\n", num);
@@ -397,7 +345,7 @@ void stuffIntToCharsBuf(int num, unsigned char * buf, int pos ){
   
   if (num < 0) {
     neg = 1;
-    buf[0+pos]= 45;
+    buf[0+pos]= 45; // 45 is '-' in OLED character map
     num= num*(-1);
   }
   
@@ -412,7 +360,7 @@ void stuffIntToCharsBuf(int num, unsigned char * buf, int pos ){
   printf("  %d   %d   %d   %d   \n", dig1, dig2, dig3, dig4);
 
 
-  buf[0+pos+neg] = dig1+48;
+  buf[0+pos+neg] = dig1+48;  // 48 is '0' character offset in OLED character map
   buf[1+pos+neg] = dig2+48;
   buf[2+pos+neg] = dig3+48;
   buf[3+pos+neg] = dig4+48;
@@ -483,49 +431,6 @@ unsigned long millis(){
     return milliTime;
 }
 
-uint8_t spi_transfer(uint8_t data) {
-    SSP1BUF = data;                // Start transmission
-    while(!SSP1STATbits.BF);       // Wait until buffer full (data received)
-    return SSP1BUF;                // Return received byte
-}
-
-void uint32_to_text(uint32_t value, char text12[16]) {
-    // Format: "  00 00 36 DA  " (two spaces at start and end)
-    // %02X prints uppercase hex with zero-padding to 2 digits
-    //snprintf(text12, 16, "  %02X %02X %02X %02X  ",
-      //       (value >> 24) & 0xFF,
-       //      (value >> 16) & 0xFF,
-       //     (value >> 8)  & 0xFF,
-       //     value & 0xFF);
-}
-
-// Read 32 bits from SPI
-uint32_t spi_read_32bits(void) {
-    uint32_t result = 0;
-    uint8_t byte;
-
-    //cs_low();  // Start transaction
-    LATC6 = 0;
-
-    for (int i = 0; i < 4; i++) {
-        byte = spi_transfer(0x00);              // Send dummy byte to clock data out
-        LATC6 = 0;
-        result = (result << 8) | byte;          // Shift and accumulate
-        LATC6 = 0;
-    }
-
-    //cs_high(); // End transaction
-    LATC6 = 1;
-    
-    return result;
-}
-void spi_write(unsigned char spiByte)
-{
-     SSPBUF=spiByte;	//write byte to sspbuf, which starts transfer
-     
-     while(!BF );	//wait until transfer complete
-     dummy= SSPBUF;	//read out the data to clear flags
-}
 void command(unsigned char s)
 {
    

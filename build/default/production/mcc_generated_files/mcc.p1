@@ -5,8 +5,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 mcc_generated_files/mcc.h
 [; ;mcc_generated_files/mcc.h: 87: void OSCILLATOR_Initialize(void);
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"70 mcc_generated_files/spi.h
-[; ;mcc_generated_files/spi.h: 70: void SPI_Initialize(void);
+"71 mcc_generated_files/spi.h
+[; ;mcc_generated_files/spi.h: 71: void SPI_Initialize(void);
 [v _SPI_Initialize `(v ~T0 @X0 0 ef ]
 "75 mcc_generated_files/mcc.c
 [; ;mcc_generated_files/mcc.c: 75: extern void initDisplay(void);
@@ -1398,6 +1398,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27883
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 27883: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
+"69 mcc_generated_files/spi.h
+[; ;mcc_generated_files/spi.h: 69: unsigned char dummy;
+[v _dummy `uc ~T0 @X0 1 e ]
 "76 mcc_generated_files/mcc.c
 [; ;mcc_generated_files/mcc.c: 76: void SYSTEM_Initialize(void)
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]

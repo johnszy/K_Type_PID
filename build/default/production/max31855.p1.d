@@ -1,5 +1,5 @@
-build/default/production/main.p1:  \
-main.c  \
+build/default/production/max31855.p1:  \
+max31855.c  \
 max31855.h  \
 mcc_generated_files/mcc.h  \
 mcc_generated_files/pin_manager.h  \

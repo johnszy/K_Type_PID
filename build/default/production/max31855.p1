@@ -1,33 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5454 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 5454: extern volatile unsigned char SSP1STAT __attribute__((address(0x214)));
-[v _SSP1STAT `Vuc ~T0 @X0 0 e@532 ]
-"5576
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 5576: extern volatile unsigned char SSP1CON1 __attribute__((address(0x215)));
-[v _SSP1CON1 `Vuc ~T0 @X0 0 e@533 ]
-"4946
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 4946: extern volatile unsigned char SSP1ADD __attribute__((address(0x212)));
-[v _SSP1ADD `Vuc ~T0 @X0 0 e@530 ]
-"4692
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 4692: extern volatile unsigned char SSP1BUF __attribute__((address(0x211)));
-[v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
-"5465
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 5465:     struct {
-[s S277 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S277 . BF UA R_nW S P D_nA CKE SMP ]
-"5464
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 5464: typedef union {
-[u S276 `S277 1 ]
-[n S276 . . ]
-"5476
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 5476: extern volatile SSP1STATbits_t SSP1STATbits __attribute__((address(0x214)));
-[v _SSP1STATbits `VS276 ~T0 @X0 0 e@532 ]
-"4697
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 4697: extern volatile unsigned char SSPBUF __attribute__((address(0x211)));
-[v _SSPBUF `Vuc ~T0 @X0 0 e@529 ]
-"28660
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 28660: extern volatile __bit BF __attribute__((address(0x10A0)));
-[v _BF `Vb ~T0 @X0 0 e@4256 ]
+"30511 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 30511: extern volatile __bit LATC6 __attribute__((address(0x876)));
+[v _LATC6 `Vb ~T0 @X0 0 e@2166 ]
+"74 ./mcc_generated_files/spi.h
+[; ;./mcc_generated_files/spi.h: 74: uint8_t spi_transfer(uint8_t data);
+[v _spi_transfer `(uc ~T0 @X0 0 ef1`uc ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1354,82 +1331,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27883
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1619.h: 27883: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"69 mcc_generated_files/spi.h
-[; ;mcc_generated_files/spi.h: 69: unsigned char dummy;
+"69 ./mcc_generated_files/spi.h
+[; ;./mcc_generated_files/spi.h: 69: unsigned char dummy;
 [v _dummy `uc ~T0 @X0 1 e ]
-"63 mcc_generated_files/spi.c
-[; ;mcc_generated_files/spi.c: 63: void SPI_Initialize(void)
-[v _SPI_Initialize `(v ~T0 @X0 1 ef ]
-"64
-[; ;mcc_generated_files/spi.c: 64: {
+"8 max31855.c
+[; ;max31855.c: 8: static uint32_t readRawData(void) {
+[v _readRawData `(ul ~T0 @X0 1 sf ]
 {
-[e :U _SPI_Initialize ]
+[e :U _readRawData ]
 [f ]
-"68
-[; ;mcc_generated_files/spi.c: 68:     SSP1STAT = 0x00;
-[e = _SSP1STAT -> -> 0 `i `uc ]
-"71
-[; ;mcc_generated_files/spi.c: 71:     SSP1CON1 = 0x32;
-[e = _SSP1CON1 -> -> 50 `i `uc ]
-"74
-[; ;mcc_generated_files/spi.c: 74:     SSP1ADD = 0x00;
-[e = _SSP1ADD -> -> 0 `i `uc ]
-"75
-[; ;mcc_generated_files/spi.c: 75: }
-[e :UE 1216 ]
-}
-"77
-[; ;mcc_generated_files/spi.c: 77: uint8_t spi_transfer(uint8_t data) {
-[v _spi_transfer `(uc ~T0 @X0 1 ef1`uc ]
+"12
+[; ;max31855.c: 12:     uint32_t result = 0;
+[v _result `ul ~T0 @X0 1 a ]
+[e = _result -> -> -> 0 `i `l `ul ]
+"13
+[; ;max31855.c: 13:     uint8_t byte;
+[v _byte `uc ~T0 @X0 1 a ]
+"16
+[; ;max31855.c: 16:     LATC6 = 0;
+[e = _LATC6 -> -> 0 `i `b ]
+"18
+[; ;max31855.c: 18:     for (int i = 0; i < 4; i++) {
 {
-[e :U _spi_transfer ]
-[v _data `uc ~T0 @X0 1 r1 ]
-[f ]
-"78
-[; ;mcc_generated_files/spi.c: 78:     SSP1BUF = data;
-[e = _SSP1BUF _data ]
-"79
-[; ;mcc_generated_files/spi.c: 79:     while(!SSP1STATbits.BF);
-[e $U 1218  ]
-[e :U 1219 ]
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 1218  ]
+[e $U 1219  ]
 [e :U 1218 ]
-[e $ ! != -> . . _SSP1STATbits 0 0 `i -> 0 `i 1219  ]
-[e :U 1220 ]
-"80
-[; ;mcc_generated_files/spi.c: 80:     return SSP1BUF;
-[e ) _SSP1BUF ]
+{
+"19
+[; ;max31855.c: 19:         byte = spi_transfer(0x00);
+[e = _byte ( _spi_transfer (1 -> -> 0 `i `uc ]
+"20
+[; ;max31855.c: 20:         LATC6 = 0;
+[e = _LATC6 -> -> 0 `i `b ]
+"21
+[; ;max31855.c: 21:         result = (result << 8) | byte;
+[e = _result | << _result -> 8 `i -> _byte `ul ]
+"22
+[; ;max31855.c: 22:         LATC6 = 0;
+[e = _LATC6 -> -> 0 `i `b ]
+"23
+[; ;max31855.c: 23:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 1218  ]
+[e :U 1219 ]
+}
+"26
+[; ;max31855.c: 26:     LATC6 = 1;
+[e = _LATC6 -> -> 1 `i `b ]
+"28
+[; ;max31855.c: 28:     return result;
+[e ) _result ]
 [e $UE 1217  ]
-"81
-[; ;mcc_generated_files/spi.c: 81: }
+"29
+[; ;max31855.c: 29: }
 [e :UE 1217 ]
 }
-"83
-[; ;mcc_generated_files/spi.c: 83: void spi_write(unsigned char spiByte)
-[v _spi_write `(v ~T0 @X0 1 ef1`uc ]
-"84
-[; ;mcc_generated_files/spi.c: 84: {
+"31
+[; ;max31855.c: 31: void init_TC(void) {
+[v _init_TC `(v ~T0 @X0 1 ef ]
 {
-[e :U _spi_write ]
-"83
-[; ;mcc_generated_files/spi.c: 83: void spi_write(unsigned char spiByte)
-[v _spiByte `uc ~T0 @X0 1 r1 ]
-"84
-[; ;mcc_generated_files/spi.c: 84: {
+[e :U _init_TC ]
 [f ]
-"85
-[; ;mcc_generated_files/spi.c: 85:      SSPBUF=spiByte;
-[e = _SSPBUF _spiByte ]
-"87
-[; ;mcc_generated_files/spi.c: 87:      while(!BF );
-[e $U 1222  ]
-[e :U 1223 ]
-[e :U 1222 ]
-[e $ ! _BF 1223  ]
-[e :U 1224 ]
-"88
-[; ;mcc_generated_files/spi.c: 88:      dummy= SSPBUF;
-[e = _dummy _SSPBUF ]
-"89
-[; ;mcc_generated_files/spi.c: 89: }
+"34
+[; ;max31855.c: 34: }
 [e :UE 1221 ]
+}
+"36
+[; ;max31855.c: 36: float getTemp_TC(void) {
+[v _getTemp_TC `(f ~T0 @X0 1 ef ]
+{
+[e :U _getTemp_TC ]
+[f ]
+"37
+[; ;max31855.c: 37:     uint32_t raw = readRawData();
+[v _raw `ul ~T0 @X0 1 a ]
+[e = _raw ( _readRawData ..  ]
+"40
+[; ;max31855.c: 40:     int16_t temp_tc = (raw >> 18) & 0x3FFF;
+[v _temp_tc `s ~T0 @X0 1 a ]
+[e = _temp_tc -> & >> _raw -> 18 `i -> -> -> 16383 `i `l `ul `s ]
+"41
+[; ;max31855.c: 41:     if (temp_tc & 0x2000) {
+[e $ ! != & -> _temp_tc `i -> 8192 `i -> 0 `i 1223  ]
+{
+"42
+[; ;max31855.c: 42:         temp_tc |= 0xC000;
+[e =| _temp_tc -> -> 49152 `ui `s ]
+"43
+[; ;max31855.c: 43:     }
+}
+[e :U 1223 ]
+"44
+[; ;max31855.c: 44:     return (float)temp_tc * 0.25f;
+[e ) * -> _temp_tc `f -> .0.25 `f ]
+[e $UE 1222  ]
+"45
+[; ;max31855.c: 45: }
+[e :UE 1222 ]
+}
+"47
+[; ;max31855.c: 47: float getDieTemp(void) {
+[v _getDieTemp `(f ~T0 @X0 1 ef ]
+{
+[e :U _getDieTemp ]
+[f ]
+"48
+[; ;max31855.c: 48:     uint32_t raw = readRawData();
+[v _raw `ul ~T0 @X0 1 a ]
+[e = _raw ( _readRawData ..  ]
+"51
+[; ;max31855.c: 51:     int16_t temp_die = (raw >> 4) & 0x0FFF;
+[v _temp_die `s ~T0 @X0 1 a ]
+[e = _temp_die -> & >> _raw -> 4 `i -> -> -> 4095 `i `l `ul `s ]
+"52
+[; ;max31855.c: 52:     if (temp_die & 0x0800) {
+[e $ ! != & -> _temp_die `i -> 2048 `i -> 0 `i 1225  ]
+{
+"53
+[; ;max31855.c: 53:         temp_die |= 0xF000;
+[e =| _temp_die -> -> 61440 `ui `s ]
+"54
+[; ;max31855.c: 54:     }
+}
+[e :U 1225 ]
+"55
+[; ;max31855.c: 55:     return (float)temp_die * 0.0625f;
+[e ) * -> _temp_die `f -> .0.0625 `f ]
+[e $UE 1224  ]
+"56
+[; ;max31855.c: 56: }
+[e :UE 1224 ]
+}
+"58
+[; ;max31855.c: 58: uint8_t getFaultCodes(void) {
+[v _getFaultCodes `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getFaultCodes ]
+[f ]
+"59
+[; ;max31855.c: 59:     uint32_t raw = readRawData();
+[v _raw `ul ~T0 @X0 1 a ]
+[e = _raw ( _readRawData ..  ]
+"62
+[; ;max31855.c: 62:     if (raw & 0x00010000) {
+[e $ ! != & _raw -> -> 65536 `l `ul -> -> -> 0 `i `l `ul 1227  ]
+{
+"63
+[; ;max31855.c: 63:         return (uint8_t)(raw & 0x07);
+[e ) -> & _raw -> -> -> 7 `i `l `ul `uc ]
+[e $UE 1226  ]
+"64
+[; ;max31855.c: 64:     }
+}
+[e :U 1227 ]
+"65
+[; ;max31855.c: 65:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1226  ]
+"66
+[; ;max31855.c: 66: }
+[e :UE 1226 ]
 }

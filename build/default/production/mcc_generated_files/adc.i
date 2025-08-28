@@ -17072,8 +17072,15 @@ void PIN_MANAGER_IOC(void);
 typedef long ptrdiff_t;
 # 19 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stddef.h" 2 3
 # 54 "mcc_generated_files/spi.h" 2
-# 70 "mcc_generated_files/spi.h"
+# 69 "mcc_generated_files/spi.h"
+unsigned char dummy;
+
 void SPI_Initialize(void);
+
+
+uint8_t spi_transfer(uint8_t data);
+
+void spi_write(unsigned char );
 # 53 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pwm3.h" 1
